@@ -11,7 +11,7 @@ int main (int argc, char* argv[]) {
         fstream studentFile2 (argv[3]);
 
         if (studentFile1.is_open() && studentFile2.is_open()) {
-             
+             int a;
         }
         else {
             std::cout << "files can't be opened\n";
