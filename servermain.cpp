@@ -1,6 +1,20 @@
 #include <iostream>
 #include <fstream>
-#include <map>
+#include <bits/stdc++.h>
+
+void readFileInMap(auto& allStudentsSet, std::ifstream& studentFile) {
+    std::string valueSet, tmp;
+    int keySet;
+
+    while (getline(studentFile, valueSet)) {
+        int i = 0;
+        while (valueSet[i] != ' ') {
+            i++;
+        }
+        valueSet.erase(0, i+1); 
+        allStudentsSet.insert(valueSet);
+    }
+}
 
 int main (int argc, char* argv[]) {
     if (argc < 3) {
@@ -12,21 +26,16 @@ int main (int argc, char* argv[]) {
         std::ifstream studentFile2 (argv[3]);
 
         if (studentFile1.is_open() && studentFile2.is_open()) {
-            std::map <int, std::string> allStudentsMap;
-            std::string buffer;
-            while (!studentFile1.eof()) {
-                getline(studentFile1, buffer);
-                while (string[i] != ' ') {
-                    tmp 
-                } 
-                allStudentsMap[key] = value;
-                std::cout << allStudentsMap[key] << std::endl; 
-                break; 
-            }
+            std::unordered_set <std::string> allStudentsSet;
+            readFileInMap(allStudentsSet, studentFile1);
+            readFileInMap(allStudentsSet, studentFile2);
+            
+            for(auto i : allStudentsSet) std::cout << i << std::endl;
         }
         else {
             std::cout << "files can't be opened\n";
             return -1;
         }
     }
+    return 0;
 }
