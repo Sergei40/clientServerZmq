@@ -2,7 +2,7 @@
 #include <fstream>
 #include <bits/stdc++.h>
 
-void readFileInMap(auto& allStudentsSet, std::ifstream& studentFile) {
+void readFileInSet(auto& allStudentsSet, std::ifstream& studentFile) {
     std::string valueSet, tmp;
     int keySet;
 
@@ -27,8 +27,8 @@ int main (int argc, char* argv[]) {
 
         if (studentFile1.is_open() && studentFile2.is_open()) {
             std::unordered_set <std::string> allStudentsSet;
-            readFileInMap(allStudentsSet, studentFile1);
-            readFileInMap(allStudentsSet, studentFile2);
+            readFileInSet(allStudentsSet, studentFile1);
+            readFileInSet(allStudentsSet, studentFile2);
             
             for(auto i : allStudentsSet) std::cout << i << std::endl;
         }
